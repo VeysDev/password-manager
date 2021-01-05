@@ -1,0 +1,43 @@
+{% extends 'vault/base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class=>How To Use</h1>
+    <div class="media content-section">
+        <div class="row justify-content-md-center contain">
+
+            <div class="col-md-4 c">
+                <img src="{% static 'vault/login.png' %}" class="image">
+                <h2 class="headers">Create your account</h2>
+                <p class="features">
+                    Create an account by entering your email address and setting a Master Password. 
+                    Your data is stored in your account. A Master Password is the only password you need to remember.
+                </p>
+            </div>
+
+            <div class="col-md-4 c">
+                <img src="{% static 'vault/sign-up.png' %}" class="image">
+                <h2 class="headers">Add your passwords</h2>
+                <p class="features">
+                    Add your passwords manually. You can easily store unlimited number of passwords.
+                </p>
+            </div>
+
+            <div class="col-md-4 c">
+                <img src="{% static 'vault/account.png' %}" class="image">
+                <h2 class="headers">Access your passwords</h2>
+                <p class="features">
+                    You can easily access all the passwords you stored just by having access to internet.
+                    Our web based password manager is accessible on all major browsers, meaning you'll find 
+                    your passwords on all your devices.
+                </p>
+            </div>
+        </div>
+    </div>
+        
+    <h1>How We Store Passwords</h1>
+    <div class="media content-section">
+        <img src="https://i.hizliresim.com/53KiNM.png" class="img-fluid">
+    </div>
+
+{% endblock %}

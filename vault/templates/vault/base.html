@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    {% block extra_head %}
+    {% endblock %}
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- loading my static css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'vault/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vault/manage.css' %}">
+
+
+    <title>Hello, world!</title>
+
+
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:  #bbe1fa">
+          <div class="container">
+            <a class="navbar-brand mr-4" href="{% url 'home-page' %}">
+              <img src="{% static 'vault/password.png' %}" width="30" height="30">
+              Pass
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link" style="color: black" href="{% url 'home-page' %}">Home</a>
+                <a class="nav-item nav-link" style="color: black" href="{% url 'about-page' %}">About</a>
+              </div>
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                
+                {% if user.is_authenticated %}
+                  <a class="nav-item nav-link" style="color: black" href="{% url 'vault-page' %}">Your Vault</a>
+                  <a class="nav-item nav-link" style="color: black" href="{% url 'logout' %}">
+                    Logout:
+                    <b>{{ user.username }}</b>  
+                  </a>
+                {% else %}
+                  <a class="nav-item nav-link" style="color: black" href="{% url 'login' %}">Login</a>
+                  <a class="nav-item nav-link" style="color: black" href="{% url 'register' %}">Register</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </nav>
+    </header>
+    <!-- content block -->
+    <main role="main" class="container">
+        <div class="row">
+          <div class="col-md-8">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+            
+            {% block content %}{% endblock %}
+          </div>
+
+          <div class="col-md-4">
+            <div class="content-section">
+              <h3>For More</h3>
+              <p class='text-muted'>For the source code and information about our school.
+                <ul class="list-group">
+                  <li class="list-group-item list-group-item-light">
+                    <a class="btn btn-outline-info btn-block" href="https://github.com/ggkus" target="_blank"><img src="{% static 'vault/github.svg' %}" width="25" height="25"> veysel's github</a></li> </span>
+                  <li class="list-group-item list-group-item-light">
+                    <a class="btn btn-outline-info btn-block" href="https://github.com/mehtab006" target="_blank"><img src="{% static 'vault/github.svg' %}" width="25" height="25"> mehtab's github</a></li> </span>
+                  <li class="list-group-item list-group-item-light">
+                    <a class="btn btn-outline-info btn-block" href="https://www.alanya.edu.tr/" target="_blank"><img src="{% static 'vault/alku.png' %}" width="25" height="25"> ALKU</a></li> </span>
+                </ul>
+              </p>
+            </div>
+          </div>
+
+          
+
+        </div>
+    </main>
+    <!-- content blockend -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

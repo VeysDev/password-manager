@@ -1,0 +1,32 @@
+{% extends 'vault/base.html' %}
+
+{% block content %}
+    
+   
+    <div class="d-flex justify-content-between">
+        <h1 class="p-2 mb-2">{{ isim }}'s Vault</h1>
+        <div class="form-group">
+            <a class="btn btn-outline-info" href="{% url 'add-goldbar' %}" style="margin: 1em 0em;">Add Goldbar</a>
+        </div>
+    </div>
+    {% for goldbar in Goldbars %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" target="_blank" href="https://{{ goldbar.website }}"  >{{ goldbar.website }}</a>
+                </div>
+                <h2><a class="article-title" >{{ goldbar.username }}</a></h2>
+                <p class="article-content">{{ goldbar.password }}</p>
+            </div>
+
+
+            <div>
+                <form action="deleteGoldbar/{{goldbar.id}}/"
+                    method="post">{% csrf_token %}
+                    <button class="btn btn-outline-info" type="submit" style="margin-top: 95%;">Delete</button>
+                </form>
+            </div>
+
+        </article>
+    {% endfor %}
+{% endblock %}
