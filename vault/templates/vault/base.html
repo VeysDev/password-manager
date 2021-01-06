@@ -18,10 +18,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'vault/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'vault/manage.css' %}">
 
-
-    <title>Hello, world!</title>
-
-
+    {% if title %}
+      <title>{{ title }}</title>
+    {% else %}
+      <title>Home</title>
+    {% endif %}
 </head>
 <body>
 
