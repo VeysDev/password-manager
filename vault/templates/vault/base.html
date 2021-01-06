@@ -18,10 +18,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'vault/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'vault/manage.css' %}">
 
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{% static 'vault/favicon.ico' %}" type="image/x-icon">
     <title>Hello, world!</title>
 
 
+=======
+    {% if title %}
+      <title>{{ title }}</title>
+    {% else %}
+      <title>Home</title>
+    {% endif %}
+>>>>>>> cdf1d808902a60640db71052636e5a9bae26f29c
 </head>
 <body>
 
@@ -79,7 +87,7 @@
               <p class='text-muted'>For the source code and information about our school.
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-light">
-                    <a class="btn btn-outline-info btn-block" href="https://github.com/ggkus" target="_blank"><img src="{% static 'vault/github.svg' %}" width="25" height="25"> veysel's github</a></li> </span>
+                    <a class="btn btn-outline-info btn-block" href="https://github.com/VeysDev" target="_blank"><img src="{% static 'vault/github.svg' %}" width="25" height="25"> veysel's github</a></li> </span>
                   <li class="list-group-item list-group-item-light">
                     <a class="btn btn-outline-info btn-block" href="https://github.com/mehtab006" target="_blank"><img src="{% static 'vault/github.svg' %}" width="25" height="25"> mehtab's github</a></li> </span>
                   <li class="list-group-item list-group-item-light">
